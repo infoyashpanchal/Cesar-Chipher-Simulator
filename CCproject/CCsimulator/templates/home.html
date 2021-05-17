@@ -9,12 +9,25 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
   	<style>
-		  .output tr td{
+		  .output tr{
 			  text-align: center;
 			  text-decoration: solid;
-			  font-size: 50pt;
+			  font-size: 100pt;
 			  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		  }
+		  .center{
+			  margin: auto;
+			  padding: 10px;
+			  display: block;
+			  justify-content: center;
+		  }
+		  .center td{
+			text-align: center;
+			background-color: rgb(219, 220, 218);
+			border-radius: 5px;
+			padding: 10px 30px;
+		  }
+		  
   	</style>
   </head>
   <body>
@@ -22,8 +35,11 @@
 		
 		<div style="text-align: center; margin: 30px;" >
 			<p1 style="font-size: 50pt;" >Cesar Cipher Simulator</p1>
+			<div>
+				<p1">Yash Panchal ==> TE-Comps ==> Roll no.: 54</p1>
+			</div>
 		</div>
-		
+	
 		<form method="POST">
 		{% csrf_token %}
 			<div class="form-floating" style="margin: 4% 10%;">
@@ -44,59 +60,31 @@
 			{% if output == 'encrypt' %}
 				<table>
 					<tr>
-						<td>
-							Plain Text
-						</td>
-						<td>
-							:&emsp;{{ text }}
+						<td style="font-size: 4vh;">
+							Encrypted Text :
 						</td>
 					</tr>
-					<tr>
+					<tr class="center">
 						<td>
-							Key
-						</td>
-						<td>
-							:&emsp;{{ key }}
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Encrypted Text
-						</td>
-						<td>
-							:&emsp;{{ result }}
+							{{ result }}
 						</td>
 					</tr>
 				</table>
 			{% elif output == 'decrypt' %}
 				<table>
 					<tr>
-						<td>
-							Encrypted Text
-						</td>
-						<td>
-							:&emsp;{{ text }}
+						<td style="font-size: 4vh;">
+							Decrypted Text :
 						</td>
 					</tr>
-					<tr>
+					<tr  class="center">
 						<td>
-							Key
-						</td>
-						<td>
-							:&emsp;{{ key }}
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Decrypted Text
-						</td>
-						<td>
-							:&emsp;{{ result }}
+							{{ result }}
 						</td>
 					</tr>
 				</table>
 			{% endif %}
 		</div>
-
   	</div>
+	
   </body>
